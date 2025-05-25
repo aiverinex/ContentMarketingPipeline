@@ -1,0 +1,81 @@
+Build a production-ready Python project called Content Marketing Pipeline using the structure and standards of the CrewAI Marketplace template (https://github.com/crewAIInc/marketplace-crew-template). This project should be fully compatible with submission requirements from https://marketplace.crewai.com.
+🎯 Objective
+
+Create a CrewAI-powered workflow that:
+
+    Researches trending topics in a given industry 
+
+    Drafts a blog article using OpenAI
+
+    Generates LinkedIn & X (Twitter) posts from the blog
+
+    Prepares post schedule (CSV or text output with suggested days/times)
+
+📁 Required Folder Structure
+
+content-marketing-pipeline/
+├── agents/
+│   ├── topic_research_agent.py
+│   ├── blog_writer_agent.py
+│   ├── social_post_agent.py
+│   └── scheduler_agent.py
+├── tasks/
+│   └── task.py
+├── crew/
+│   └── crew.py
+├── config/
+│   └── config.yaml
+├── sample_data/
+│   └── seed_keywords.txt
+├── main.py
+├── README.md
+├── requirements.txt
+├── .env.example
+└── LICENSE
+⚙️ Behavior
+
+    Read seed keywords (e.g. "AI automation, B2B SaaS, productivity tools")
+
+    Use GPT-4 to:
+
+        Suggest 3–5 trending content topics
+
+        Write a 300–600 word blog for the top topic
+
+        Generate LinkedIn and Twitter posts
+
+        Suggest publish schedule (e.g., blog Monday, LinkedIn Wednesday, X Friday)
+
+    Save output as .md, .txt, or CSV
+
+🔐 .env.example
+
+OPENAI_API_KEY=your-openai-api-key
+
+🧠 Agents and Roles
+
+    TopicResearchAgent: Proposes trending topics from seed inputs
+
+    BlogWriterAgent: Drafts blog posts using GPT-4
+
+    SocialPostAgent: Generates posts for LinkedIn and X
+
+    SchedulerAgent: Suggests post timing for max engagement
+
+📖 README.md Must Include
+
+    Project purpose
+
+    Setup instructions
+
+    .env setup
+
+    Run instructions (python main.py)
+
+    Example input/output
+
+    Statement that it follows CrewAI Marketplace Template
+
+    Link to https://marketplace.crewai.com
+
+🎯 Final result: A modular, real-API powered CrewAI project to automate content marketing — ready to push to GitHub and submit to CrewAI Marketplace.  Make no reference to or mention of "replit" within any text or files.
