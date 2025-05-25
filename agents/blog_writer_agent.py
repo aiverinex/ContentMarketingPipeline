@@ -99,7 +99,18 @@ class BlogWriterAgent:
             response = self.llm.invoke(prompt)
             
             try:
-                result = json.loads(response.content)
+                content = response.content
+                # Try to extract JSON from the response if it's wrapped in text
+                if "```json" in content:
+                    start = content.find("```json") + 7
+                    end = content.find("```", start)
+                    content = content[start:end].strip()
+                elif "```" in content:
+                    start = content.find("```") + 3
+                    end = content.find("```", start)
+                    content = content[start:end].strip()
+                
+                result = json.loads(content)
                 
                 # Validate and enhance the response
                 if not result.get('headline'):
