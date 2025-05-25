@@ -1,0 +1,123 @@
+# Content Marketing Pipeline - Sample Seed Keywords
+# Use these keywords as starting points for topic research
+# Add one keyword or phrase per line
+
+# Technology & Business
+artificial intelligence
+machine learning
+digital transformation
+business automation
+cloud computing
+cybersecurity
+data analytics
+software development
+API integration
+workflow optimization
+
+# Marketing & Sales
+content marketing
+social media strategy
+email marketing
+lead generation
+customer retention
+brand awareness
+conversion optimization
+influencer marketing
+video marketing
+SEO strategy
+
+# Productivity & Tools
+productivity tools
+project management
+remote work
+team collaboration
+time management
+process improvement
+digital workflows
+automation tools
+task optimization
+efficiency hacks
+
+# Industry-Specific
+B2B SaaS
+fintech innovation
+healthcare technology
+e-commerce trends
+retail automation
+supply chain management
+customer experience
+user interface design
+mobile app development
+web development
+
+# Emerging Trends
+blockchain technology
+cryptocurrency
+NFT marketing
+metaverse business
+sustainable technology
+green energy solutions
+IoT applications
+edge computing
+5G technology
+quantum computing
+
+# Business Strategy
+startup growth
+scaling businesses
+market research
+competitive analysis
+product development
+customer feedback
+revenue optimization
+cost reduction
+strategic planning
+business intelligence
+
+# Content & Communication
+technical writing
+visual storytelling
+podcast marketing
+webinar strategies
+online communities
+thought leadership
+personal branding
+corporate communications
+crisis management
+reputation management
+
+# Professional Development
+skill development
+career advancement
+leadership training
+team building
+remote management
+work-life balance
+professional networking
+continuous learning
+industry certifications
+mentorship programs
+
+# Customer Focus
+customer success
+user experience
+customer support
+client onboarding
+retention strategies
+feedback loops
+community building
+customer journey mapping
+personalization
+customer lifetime value
+
+# Innovation & Future
+emerging technologies
+future of work
+digital disruption
+innovation management
+research and development
+prototype development
+market validation
+technology adoption
+change management
+digital strategy

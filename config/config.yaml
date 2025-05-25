@@ -1,0 +1,212 @@
+# Content Marketing Pipeline Configuration
+# This file contains all configuration settings for the CrewAI content marketing workflow
+
+# Project Information
+project:
+  name: "Content Marketing Pipeline"
+  version: "1.0.0"
+  description: "CrewAI-powered workflow for automated content marketing"
+  author: "Content Marketing Team"
+
+# OpenAI Configuration
+openai:
+  model: "gpt-4o"  # Latest OpenAI model as of May 2024
+  temperature: 0.7  # Default temperature for content generation
+  max_tokens: 4000  # Maximum tokens per request
+  api_timeout: 60   # Request timeout in seconds
+
+# Agent Configuration
+agents:
+  topic_research_agent:
+    role: "Content Topic Research Specialist"
+    temperature: 0.7
+    max_iterations: 3
+    memory_enabled: true
+    verbose: true
+    
+  blog_writer_agent:
+    role: "Expert Content Writer"
+    temperature: 0.8  # Higher creativity for writing
+    max_iterations: 3
+    memory_enabled: true
+    verbose: true
+    
+  social_post_agent:
+    role: "Social Media Content Specialist"
+    temperature: 0.9  # Highest creativity for social content
+    max_iterations: 3
+    memory_enabled: true
+    verbose: true
+    
+  scheduler_agent:
+    role: "Content Scheduling Strategist"
+    temperature: 0.3  # Lower temperature for consistent scheduling logic
+    max_iterations: 3
+    memory_enabled: true
+    verbose: true
+
+# Content Generation Settings
+content:
+  blog:
+    min_word_count: 300
+    max_word_count: 600
+    default_word_count: 500
+    default_brand_voice: "professional"
+    include_seo_optimization: true
+    
+  social_media:
+    linkedin:
+      posts_per_campaign: 2
+      max_character_count: 1300
+      hashtag_limit: 10
+      default_post_style: "professional"
+      
+    twitter:
+      posts_per_campaign: 3
+      max_character_count: 280
+      hashtag_limit: 3
+      include_threads: true
+      
+# Scheduling Configuration
+scheduling:
+  default_timezone: "UTC"
+  campaign_duration_days: 7
+  default_audience: "B2B professionals"
+  
+  optimal_times:
+    blog:
+      preferred_days: ["Tuesday", "Wednesday", "Thursday"]
+      preferred_hours: ["09:00", "10:00", "14:00"]
+      
+    linkedin:
+      preferred_days: ["Tuesday", "Wednesday", "Thursday", "Friday"]
+      preferred_hours: ["08:00", "09:00", "10:00", "12:00", "17:00"]
+      
+    twitter:
+      preferred_days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+      preferred_hours: ["09:00", "12:00", "15:00", "18:00", "20:00"]
+
+# Output Configuration
+output:
+  directory: "output"
+  formats: ["json", "markdown", "csv", "txt"]
+  include_timestamps: true
+  save_intermediate_results: true
+  
+  file_naming:
+    topic_research: "topic_research_{timestamp}.json"
+    blog_article: "blog_article_{timestamp}"  # Will generate .json and .md
+    social_posts: "social_posts_{timestamp}.json"
+    posting_schedule: "posting_schedule_{timestamp}"  # Will generate .json and .csv
+    complete_campaign: "complete_campaign_{timestamp}.json"
+    campaign_summary: "campaign_summary_{timestamp}.txt"
+
+# Pipeline Settings
+pipeline:
+  enable_error_recovery: true
+  save_checkpoints: true
+  max_retries: 3
+  retry_delay_seconds: 5
+  
+  steps:
+    - name: "topic_research"
+      required: true
+      timeout_minutes: 10
+      
+    - name: "blog_writing"
+      required: true
+      timeout_minutes: 15
+      depends_on: ["topic_research"]
+      
+    - name: "social_media_creation"
+      required: true
+      timeout_minutes: 10
+      depends_on: ["blog_writing"]
+      
+    - name: "scheduling"
+      required: true
+      timeout_minutes: 5
+      depends_on: ["blog_writing", "social_media_creation"]
+
+# Quality Assurance
+quality:
+  content_validation:
+    check_word_count: true
+    check_character_limits: true
+    validate_json_output: true
+    check_required_fields: true
+    
+  seo_validation:
+    check_meta_description_length: true
+    validate_headline_length: true
+    check_keyword_density: false  # Optional advanced feature
+    
+# Industry and Topic Configuration
+topics:
+  default_seed_keywords:
+    - "business automation"
+    - "digital transformation"
+    - "productivity tools"
+    - "AI technology"
+    - "marketing strategy"
+    
+  trending_analysis:
+    consider_seasonality: true
+    include_competitor_analysis: false  # Optional advanced feature
+    market_research_depth: "medium"  # low, medium, high
+    
+# Error Handling
+error_handling:
+  log_errors: true
+  continue_on_non_critical_errors: true
+  fallback_content_enabled: true
+  
+  critical_errors:
+    - "openai_api_failure"
+    - "invalid_seed_keywords"
+    - "file_write_permission_error"
+    
+  non_critical_errors:
+    - "json_parsing_error"
+    - "seo_optimization_failure"
+    - "csv_export_error"
+
+# Performance Settings
+performance:
+  concurrent_requests: false  # Set to true for parallel processing (advanced)
+  cache_enabled: false  # Set to true to cache API responses (advanced)
+  request_rate_limit: 10  # Requests per minute
+  
+# Development and Debug Settings
+debug:
+  verbose_logging: true
+  save_raw_responses: false  # Set to true for debugging
+  include_agent_thoughts: true
+  timing_enabled: true
+
+# Marketplace Compliance
+marketplace:
+  crew_ai_template_version: "latest"
+  compatible_with_crew_ai_cloud: true
+  submission_ready: true
+  
+  required_env_vars:
+    - "OPENAI_API_KEY"
+    
+  optional_env_vars: []
+  
+  license: "MIT"
+  
+# Custom Workflow Support
+custom_workflows:
+  enabled: true
+  max_custom_steps: 10
+  allow_step_reordering: true
+  
+  available_steps:
+    - "topic_research"
+    - "blog_writing"
+    - "social_media_creation"
+    - "scheduling"
+    - "seo_optimization"
+    - "campaign_analysis"
